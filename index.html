@@ -113,17 +113,17 @@ p:last-child{margin-bottom:0}
 
 /* hero */
 .hero{background:var(--wine-900);color:var(--bone);position:relative;overflow:hidden;
-  padding-block:clamp(3.6rem,8vw,7rem)}
+  padding-block:clamp(3.2rem,6vw,5.4rem)}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(120% 80% at 88% 0%,rgba(224,177,91,.13),transparent 62%)}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;
-  gap:clamp(2rem,5vw,4.5rem);align-items:end}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;
+  gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .hero h1{margin-bottom:1.5rem}
 .hero h1 em{font-style:italic;color:var(--brass-lt);font-variation-settings:"SOFT" 60,"WONK" 1,"opsz" 96}
 
 /* ledger: the signature element */
 .ledger{border-top:1px solid var(--rule-dk)}
-.ledger-row{display:grid;grid-template-columns:2.6rem 1fr auto;gap:1rem;align-items:baseline;
+.ledger-row{display:grid;grid-template-columns:2.6rem minmax(0,1fr) auto;gap:.6rem 1.2rem;align-items:baseline;
   padding:.95rem .6rem;border-bottom:1px solid var(--rule-dk);text-decoration:none;
   transition:background .18s ease,padding-left .18s ease}
 .ledger-row:hover{background:rgba(224,177,91,.09);padding-left:1rem}
@@ -131,7 +131,10 @@ p:last-child{margin-bottom:0}
 .ledger-name{font-family:var(--serif);font-size:1.08rem;font-weight:600;line-height:1.2}
 .ledger-meta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
   color:rgba(243,237,227,.62);text-align:right}
-.ledger-note{grid-column:2/-1;font-size:.9rem;color:rgba(243,237,227,.7);margin-top:.3rem;max-width:52ch}
+.ledger-note{grid-column:2/-1;font-size:.9rem;color:rgba(243,237,227,.7);margin:.15rem 0 0;max-width:56ch}
+.ledger-sm .ledger-row{grid-template-columns:2.2rem minmax(0,1fr)}
+.ledger-sm .ledger-meta{grid-column:2;grid-row:2;text-align:left;margin-top:.15rem}
+.ledger-sm .ledger-note{grid-column:2;margin-top:.45rem}
 .ledger-cap{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
   color:rgba(243,237,227,.55);margin:.9rem 0 0}
 
@@ -171,14 +174,16 @@ p:last-child{margin-bottom:0}
 
 /* steps: a real sequence, so numbered */
 .steps{counter-reset:s;display:grid;gap:0;border-top:1px solid var(--rule)}
-.step{counter-increment:s;display:grid;grid-template-columns:5.5rem 1fr;gap:clamp(1rem,3vw,2.5rem);
-  padding:clamp(1.4rem,3vw,2.1rem) 0;border-bottom:1px solid var(--rule);align-items:start}
-.step::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:.82rem;
-  color:var(--brass-dk);letter-spacing:.08em;padding-top:.35rem}
-.step p{margin-top:.6rem;color:var(--ink-60);max-width:62ch}
+.step{counter-increment:s;display:grid;grid-template-columns:3.4rem minmax(0,1fr);column-gap:clamp(.8rem,2vw,1.4rem);
+  padding:clamp(1.3rem,3vw,1.9rem) 0;border-bottom:1px solid var(--rule);align-items:start}
+.step::before{content:counter(s,decimal-leading-zero);grid-column:1;grid-row:1;font-family:var(--mono);
+  font-size:.82rem;color:var(--brass-dk);letter-spacing:.08em;padding-top:.3rem}
+.step h3{grid-column:2;grid-row:1}
+.step p{grid-column:2;grid-row:2;margin:.55rem 0 0;color:var(--ink-60);max-width:62ch}
 
 /* prose */
 .prose{max-width:68ch}
+.prose h2{margin-bottom:1.05rem}
 .prose h3{margin-top:2.4rem;margin-bottom:.7rem}
 .prose h3:first-child{margin-top:0}
 .prose ul{padding-left:1.15rem;color:var(--ink-60)}
@@ -255,8 +260,8 @@ p:last-child{margin-bottom:0}
   .nav a::after{display:none}
   .g3,.g2{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
-  .ledger-row{grid-template-columns:2.2rem 1fr}
-  .ledger-meta{grid-column:2;text-align:left;margin-top:.25rem}
+  .ledger-row{grid-template-columns:2.2rem minmax(0,1fr)}
+  .ledger-meta{grid-column:2;grid-row:2;text-align:left;margin-top:.15rem}
   .step{grid-template-columns:1fr;gap:.2rem}
   .step::before{padding-top:0}
 }
@@ -360,12 +365,11 @@ p:last-child{margin-bottom:0}
       </div>
     </div>
     <div>
-      <div class="ledger">
+      <div class="ledger ledger-sm">
 <a class="ledger-row" href="https://trassig.com/" rel="noopener" target="_blank"><span class="ledger-num">01</span><span class="ledger-name">Trassig Corp.</span><span class="ledger-meta">Commercial playgrounds &middot; Connecticut</span><p class="ledger-note">Designs, sells and installs commercial playground sets, site amenities and shade structures. Incubated by Gourad Group and now independently operated.</p></a>
 <a class="ledger-row" href="http://biworks.us/" rel="noopener" target="_blank"><span class="ledger-num">02</span><span class="ledger-name">BI Works</span><span class="ledger-meta">Business intelligence &middot; United States</span><p class="ledger-note">Data analysis, website personalization and programming, and database reporting. Independently operated, still part of the family.</p></a>
 <a class="ledger-row" href="https://www.tingismagazine.com/" rel="noopener" target="_blank"><span class="ledger-num">03</span><span class="ledger-name">Tingis Magazine</span><span class="ledger-meta">Online publishing &middot; Moroccan-American</span><p class="ledger-note">An online Moroccan-American magazine covering transnational political, cultural and intellectual discourse.</p></a>
 <div class="ledger-row"><span class="ledger-num">04</span><span class="ledger-name">Sahara Group</span><span class="ledger-meta">Cigar lounges &middot; Slovakia</span><p class="ledger-note">A chain of high end cigar lounges operating in Slovakia.</p></div>
-<div class="ledger-row"><span class="ledger-num">05</span><span class="ledger-name">Advantico SARL</span><span class="ledger-meta">Commercial cleaning &middot; Sweden</span><p class="ledger-note">A commercial mat cleaning company serving business clients in Sweden.</p></div>
 </div>
 <p class="ledger-cap">Selected holdings. Full index on the portfolio page.</p>
     </div>
